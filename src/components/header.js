@@ -28,8 +28,9 @@ const Header = props => {
 
     changeTheme(opositeTheme)
 
-    typeof window !== 'undefined' &&
+    if (typeof window !== 'undefined') {
       window.localStorage.setItem('theme', opositeTheme)
+    }
   }
   const onToggleMobileMenu = () => toggleMobileMenu(!isMobileMenuVisible)
   const onToggleSubMenu = () => toggleSubMenu(!isSubMenuVisible)
@@ -39,9 +40,9 @@ const Header = props => {
       <Helmet>
         <body
           className={
-            (userTheme || defaultTheme) === 'light'
-              ? 'light-theme'
-              : 'dark-theme'
+            (userTheme || defaultTheme) === 'light' ?
+              'light-theme' :
+              'dark-theme'
           }
         />
       </Helmet>
